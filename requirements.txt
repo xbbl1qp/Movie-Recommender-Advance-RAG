@@ -1,0 +1,10 @@
+chromadb>=1.0,<2.0
+sentence-transformers
+pandas
+python-dotenv
+streamlit
+rank-bm25
+fastapi
+uvicorn[standard]
+pytest
+httpx
