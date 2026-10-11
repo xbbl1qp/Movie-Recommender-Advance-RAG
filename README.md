@@ -1,5 +1,5 @@
 # Movie-Recommender-Advance-Rag
-Movie recommender with Advance RAg will recommend movie based on the user input it is using RAG, Vector Database internally to do so.
+Movie recommender with Advance RAG.
 
 Steps to run :
 
