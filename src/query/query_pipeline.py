@@ -6,6 +6,11 @@ from src.query.query_transformer import (
 from src.query.query_router import route_query
 from src.retrieval.vector_search import seach_movies
 
+from src.retrieval.hybrid_search import(
+    keyword_search,
+    hybrid_search
+)
+
 def run_query_pipeline(query: str) -> dict:
 
     normalized_query = normalize_query(query)
@@ -14,7 +19,20 @@ def run_query_pipeline(query: str) -> dict:
 
     route = route_query(normalized_query)
 
-    movies = seach_movies(transformed_query, top_k=5)
+    if route == "keyword":
+        movies = keyword_search(
+            transformed_query,
+            top_k=5
+        )
+
+    elif route == "hybrid":
+        movies = hybrid_search(
+            transformed_query,
+            top_k=5
+        )
+
+    else:
+        movies = seach_movies(transformed_query, top_k=5)
 
     return {
         "original_query": query,
@@ -34,7 +52,18 @@ if __name__ == "__main__":
     print(f"\nRoute:{result['route']}")
     print("\nRetrived movies:")
 
-    for index, movie in enumerate(result["movies"], start=1):
+    for rank, movie in enumerate(result["movies"], start=1):
         title = movie["metadata"].get("title", "Unknow title")
-        print(f"{index}. {title} (distance={movie['distance']:.4f})")
-        
+        print(f"{rank}. {title}")
+
+        if "distance" in movie:
+            print(f"  Vector distance : {movie['distance']:.4f}")
+
+        if "bm25_score" in movie:
+            print(f"  BM25 score: {movie['bm25_score']:.4f}")
+
+        if "rrf_score" in movie:
+            print(f"  RRF score: {movie['rrf_score']:.5f}")
+
+        print(f"  Genres: {movie['metadata'].get('genres','Unknown')}")
+        print()
