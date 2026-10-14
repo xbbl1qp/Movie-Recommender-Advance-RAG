@@ -11,6 +11,12 @@ from src.retrieval.hybrid_search import(
     hybrid_search
 )
 
+from src.retrieval.reranker import(
+    rerank_document
+)
+
+from src.retrieval.compressor import compress_movie_contexts
+
 def run_query_pipeline(query: str) -> dict:
 
     normalized_query = normalize_query(query)
@@ -22,23 +28,25 @@ def run_query_pipeline(query: str) -> dict:
     if route == "keyword":
         movies = keyword_search(
             transformed_query,
-            top_k=5
+            top_k=20
         )
 
     elif route == "hybrid":
         movies = hybrid_search(
             transformed_query,
-            top_k=5
+            top_k=20
         )
 
     else:
-        movies = seach_movies(transformed_query, top_k=5)
+        movies = seach_movies(transformed_query, top_k=20)
 
+    movies = rerank_document(transformed_query, movies, 5)
+    compressed_movies = compress_movie_contexts(query=transformed_query, movies=movies)
     return {
         "original_query": query,
         "tranformed_query": transformed_query,
         "route": route,
-        "movies":movies,
+        "movies":compressed_movies,
     }
 
 
@@ -66,4 +74,3 @@ if __name__ == "__main__":
             print(f"  RRF score: {movie['rrf_score']:.5f}")
 
         print(f"  Genres: {movie['metadata'].get('genres','Unknown')}")
-        print()

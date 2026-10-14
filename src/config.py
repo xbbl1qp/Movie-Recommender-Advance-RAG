@@ -18,6 +18,11 @@ EMBEDDING_MODEL_NAME = os.getenv(
     "sentence-transformers/all-MiniLM-L6-V2"
 )
 
+RERANKER_MODEL_NAME =  os.getenv(
+    "RERANKER_MODEL_NAME",
+    "cross-encoder/ms-marco-MiniLM-L-6-v2"
+)
+
 BATCH_SIZE = int(os.getenv("BATCH_SIZE", "128"))
 
 MOVIES_CSV = DATA_DIR / "movies.csv"
