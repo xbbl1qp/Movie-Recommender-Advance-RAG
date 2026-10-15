@@ -28,3 +28,8 @@ BATCH_SIZE = int(os.getenv("BATCH_SIZE", "128"))
 MOVIES_CSV = DATA_DIR / "movies.csv"
 TAGS_CSV = DATA_DIR / "tags.csv"
 RATINGS_CSV = DATA_DIR / "ratings.csv"
+
+LLM_MODEL_NAME =  os.getenv(
+    "LLM_MODEL_NAME",
+    "Qwen/Qwen2.5-0.5B-Instruct"
+)

@@ -17,6 +17,8 @@ from src.retrieval.reranker import(
 
 from src.retrieval.compressor import compress_movie_contexts
 
+from src.generator.generator import generate_recommendation
+
 def run_query_pipeline(query: str) -> dict:
 
     normalized_query = normalize_query(query)
@@ -42,35 +44,35 @@ def run_query_pipeline(query: str) -> dict:
 
     movies = rerank_document(transformed_query, movies, 5)
     compressed_movies = compress_movie_contexts(query=transformed_query, movies=movies)
+
+    final_response = generate_recommendation(query, compressed_movies)
+
     return {
         "original_query": query,
         "tranformed_query": transformed_query,
         "route": route,
-        "movies":compressed_movies,
+        "movies": compressed_movies,
+        "response": final_response,
     }
 
 
 if __name__ == "__main__":
     query = input("What kind of movie you are looking for?")
 
+    print("\n Pipeline running...Please wait for response from model")
     result = run_query_pipeline(query)
 
     print(f"\nOriginal Query:{result['original_query']}")
     print(f"\nTransformed Query:{result['tranformed_query']}")
     print(f"\nRoute:{result['route']}")
-    print("\nRetrived movies:")
 
+    print("\n" + "="*50)
+    print("AI Generated Recommendation:")
+    print("="*50)
+    print(result["response"])
+    print("="*50 + "\n")
+
+    print("Retrived Source Movies")
     for rank, movie in enumerate(result["movies"], start=1):
-        title = movie["metadata"].get("title", "Unknow title")
-        print(f"{rank}. {title}")
-
-        if "distance" in movie:
-            print(f"  Vector distance : {movie['distance']:.4f}")
-
-        if "bm25_score" in movie:
-            print(f"  BM25 score: {movie['bm25_score']:.4f}")
-
-        if "rrf_score" in movie:
-            print(f"  RRF score: {movie['rrf_score']:.5f}")
-
-        print(f"  Genres: {movie['metadata'].get('genres','Unknown')}")
+        title = movie["metadata"].get("title", "Unknown Title")
+        print(f"{rank}. {title}, (Genres: {movie['metadata'].get('genres','Unknown')})")
