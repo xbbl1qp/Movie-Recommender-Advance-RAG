@@ -57,7 +57,7 @@ def generate_recommendation(query: str, movies:list[dict]) -> str:
                 "role":"user",
                 "content": (
                     f"User Request: {query}\n\n"
-                    f"Retrieved Movie Context:\n{context_str}\n\n"
+                    f"Retrieved Movie Context : \n{context_str}\n\n"
                     "Please provide a helpful, personalized movie recommendation based on the above"
                 )
             }
