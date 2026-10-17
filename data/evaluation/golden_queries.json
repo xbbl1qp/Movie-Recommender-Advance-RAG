@@ -1,0 +1,152 @@
+[
+  {
+    "query": "The Matrix",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [2571]
+  },
+  {
+    "query": "Movies similar to Interstellar",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [79132, 134130, 164179, 541]
+  },
+  {
+    "query": "Funny science fiction movies about aliens",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1580, 3175, 84772, 33004, 71106, 2716]
+  },
+  {
+    "query": "Movies about time travel",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1270, 2011, 2012, 1265, 71106, 70599]
+  },
+  {
+    "query": "Titanic",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [1721]
+  },
+  {
+    "query": "Movies similar to The Godfather",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [1221, 2023, 1213, 296]
+  },
+  {
+    "query": "Movies about artificial intelligence and robots",
+    "expected_route": "vector",
+    "relevant_movie_ids": [2571, 589, 541, 59315]
+  },
+  {
+    "query": "Animated movies for children",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1, 3114, 6377, 4306, 152081]
+  },
+  {
+    "query": "Action movies with car chases",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1036, 1370, 165, 53972]
+  },
+  {
+    "query": "The Lord of the Rings",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [4993, 5952, 7153]
+  },
+  {
+    "query": "Movies similar to Toy Story",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [3114, 78499, 4306, 6377]
+  },
+  {
+    "query": "Funny movies about superheroes",
+    "expected_route": "vector",
+    "relevant_movie_ids": [122904, 187593, 59315]
+  },
+  {
+    "query": "Movies about dinosaurs",
+    "expected_route": "vector",
+    "relevant_movie_ids": [480, 1544, 4638]
+  },
+  {
+    "query": "Star Wars",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [260, 1196, 1210, 2628]
+  },
+  {
+    "query": "Movies similar to Groundhog Day",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [1265, 1270, 71106, 70599]
+  },
+  {
+    "query": "Space exploration and survival movies",
+    "expected_route": "vector",
+    "relevant_movie_ids": [109487, 134130, 164179]
+  },
+  {
+    "query": "The Terminator",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [1240, 589, 6537]
+  },
+  {
+    "query": "Crime dramas about the mafia",
+    "expected_route": "vector",
+    "relevant_movie_ids": [858, 1221, 2023, 1213]
+  },
+  {
+    "query": "Movies similar to Finding Nemo",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [6377, 1, 3114, 152081]
+  },
+  {
+    "query": "Ghostbusters",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [2716, 2717, 160080]
+  },
+  {
+    "query": "Fantasy adventure movies with magic",
+    "expected_route": "vector",
+    "relevant_movie_ids": [4993, 5952, 7153, 4896, 5816]
+  },
+  {
+    "query": "Movies similar to Blade Runner",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [176371, 541, 164179, 2571]
+  },
+  {
+    "query": "Romantic movies with a science fiction element",
+    "expected_route": "vector",
+    "relevant_movie_ids": [7361, 70599, 71106]
+  },
+  {
+    "query": "Harry Potter",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [4896, 5816, 8368, 40815]
+  },
+  {
+    "query": "Feel-good comedy movies for a family night",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1, 586, 4306, 1197, 3175]
+  },
+  {
+    "query": "Movies similar to Inception",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [109487, 164179, 7361, 541]
+  },
+  {
+    "query": "Horror movies involving aliens",
+    "expected_route": "vector",
+    "relevant_movie_ids": [1214, 1200, 1320, 1690]
+  },
+  {
+    "query": "Die Hard",
+    "expected_route": "keyword",
+    "relevant_movie_ids": [1036, 1370, 165, 53972]
+  },
+  {
+    "query": "Animated movies about animals",
+    "expected_route": "vector",
+    "relevant_movie_ids": [6377, 152081, 1, 3114]
+  },
+  {
+    "query": "Movies similar to The Princess Bride",
+    "expected_route": "hybrid",
+    "relevant_movie_ids": [1197, 4306, 4993, 1198]
+  }
+]
